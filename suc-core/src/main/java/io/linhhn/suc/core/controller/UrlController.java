@@ -17,12 +17,17 @@ public class UrlController {
     }
 
     @PostMapping("/urls")
-    public ResponseEntity<String> shorten(@Valid @RequestBody UrlDto urlDto) {
+    public ResponseEntity<String> shortenUrl(@Valid @RequestBody UrlDto urlDto) {
         return new ResponseEntity<>(urlService.shortenURL(urlDto), HttpStatus.OK);
     }
 
     @GetMapping("/{shortUrl}")
     public ResponseEntity<String> getLongUrl(@PathVariable String shortUrl) {
         return new ResponseEntity<>(urlService.getLongUrl(shortUrl), HttpStatus.OK);
+    }
+
+    @GetMapping("/ping")
+    public ResponseEntity<String> ping() {
+        return new ResponseEntity<>("pong", HttpStatus.OK);
     }
 }

@@ -43,7 +43,7 @@ public class UrlService {
 
     public String encode(String rawUrl) {
         try {
-            String saltedUrl = rawUrl + UUID.randomUUID().toString();
+            String saltedUrl = rawUrl + UUID.randomUUID();
 
             MessageDigest digest = MessageDigest.getInstance("SHA-256");
             byte[] hashBytes = digest.digest(saltedUrl.getBytes(StandardCharsets.UTF_8));
