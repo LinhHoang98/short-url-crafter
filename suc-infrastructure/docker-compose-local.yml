@@ -1,0 +1,11 @@
+services:
+  postgres:
+    image: 'postgres:latest'
+    container_name: 'suc-local'
+    environment:
+      - 'POSTGRES_DB=shorturlcrafter'
+      - 'POSTGRES_PASSWORD=12345678'
+      - 'POSTGRES_USER=user'
+    ports:
+      - '5432:5432'
+    restart: always
